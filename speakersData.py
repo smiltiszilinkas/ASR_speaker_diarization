@@ -1,0 +1,23 @@
+#[name, who]
+speaker_data = [  
+    ["man0","Dwight the Office"],
+    ["man1","Jim the Office"],
+    ["man2","Michael the Office"],
+    ["man3","Asian Jim the Office"],
+    ["woman0","Pim the Office"],
+    ["man4", "Youtube Fireship voice"],
+    ["woman1","Anne Mahlum Instagrammer/fitness couch/ Entrepreneur"],
+    ["woman2","Shelby Church Youtuber"],
+    ["man5", "Elon Musk"],
+    ["man6","Tucker Carlson"],
+    ["man7", "Matt Abrahams"],
+    ["man8", "Jimmy Kimmel"],
+    ["woman3","Dua Lipa"],
+    ["man9", "Steve Harvey"],
+    ["kid0", "Micro Mayor James"],
+    ["woman4","Someone from Kardashians"],
+    ["woman5","Someone from Kardashians 2"],
+    ["man10","Gordon Ramsay"],
+    ["man11","The Chef 1"],
+    ["woman6","The Chef 2"],
+]
