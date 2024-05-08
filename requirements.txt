@@ -1,0 +1,6 @@
+pyannote.audio
+pydub
+IPython
+torch
+wave
+matplotlib
