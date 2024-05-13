@@ -59,40 +59,40 @@ example: woman1_f_s_1.wav - denotes woman 1 is speaking, female, for shorter tha
 import numpy as np
 
 
-for audio_clip in video_data:
-  t1 = time_to_miliseconds(audio_clip[5]) #Works in milliseconds
-  t2 = time_to_miliseconds(audio_clip[6])
+# for audio_clip in video_data:
+#   t1 = time_to_miliseconds(audio_clip[5]) #Works in milliseconds
+#   t2 = time_to_miliseconds(audio_clip[6])
 
-  new_audio = AudioSegment.from_file(f'data/videoAudio/{audio_clip[0]}')
-  new_audio = new_audio[t1:t2]
-  # Convert audio to raw PCM data
-  new_audio_raw = new_audio.raw_data
+#   new_audio = AudioSegment.from_file(f'data/videoAudio/{audio_clip[0]}')
+#   new_audio = new_audio[t1:t2]
+#   # Convert audio to raw PCM data
+#   new_audio_raw = new_audio.raw_data
 
-  # Convert raw PCM data to numpy array
-  audio_array = np.frombuffer(new_audio_raw, dtype=np.int16)
+#   # Convert raw PCM data to numpy array
+#   audio_array = np.frombuffer(new_audio_raw, dtype=np.int16)
 
-  # Clip new_audio audio data to ensure it stays within the appropriate range [-32768, 32767]
-  audio_array = np.clip(audio_array, -32768, 32767)
+#   # Clip new_audio audio data to ensure it stays within the appropriate range [-32768, 32767]
+#   audio_array = np.clip(audio_array, -32768, 32767)
 
-  # Convert the audio_array audio array back to bytes
-  new_audio_raw = audio_array.astype(np.int16).tobytes()
+#   # Convert the audio_array audio array back to bytes
+#   new_audio_raw = audio_array.astype(np.int16).tobytes()
 
-  # Create a new AudioSegment from the noisy audio raw data
-  if new_audio.channels == 1:
-      # If the original audio is mono, set the new audio to mono
-      n_audio = AudioSegment(new_audio_raw, frame_rate=new_audio.frame_rate, sample_width=new_audio.sample_width, channels=1)
-  else:
-      # If the original audio is stereo, set the new audio to stereo
-      n_audio = AudioSegment(new_audio_raw, frame_rate=new_audio.frame_rate, sample_width=new_audio.sample_width, channels=2)
+#   # Create a new AudioSegment from the noisy audio raw data
+#   if new_audio.channels == 1:
+#       # If the original audio is mono, set the new audio to mono
+#       n_audio = AudioSegment(new_audio_raw, frame_rate=new_audio.frame_rate, sample_width=new_audio.sample_width, channels=1)
+#   else:
+#       # If the original audio is stereo, set the new audio to stereo
+#       n_audio = AudioSegment(new_audio_raw, frame_rate=new_audio.frame_rate, sample_width=new_audio.sample_width, channels=2)
 
-  # Save the new audio to a new .wav file
-  n_audio.export(f'data/audioClips/{audio_clip[4]}.wav', format="wav") #Exports to a wav file in the current path
+#   # Save the new audio to a new .wav file
+#   n_audio.export(f'data/audioClips/{audio_clip[4]}.wav', format="wav") #Exports to a wav file in the current path
 
 """## Combine Clips"""
 
 # Number of clips
 number_clips = 500
-combine_random_audio_clips(number_clips)
+# combine_random_audio_clips(number_clips)
 
 """# Predict
 
