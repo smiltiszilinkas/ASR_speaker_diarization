@@ -92,7 +92,7 @@ import numpy as np
 
 # Number of clips
 number_clips = 500
-# combine_random_audio_clips(number_clips)
+combine_random_audio_clips(number_clips)
 
 """# Predict
 
