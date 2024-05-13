@@ -7,8 +7,15 @@ def time_to_miliseconds(time_str):
     seconds = int(time_parts[1])
     miliseconds = int(time_parts[2])
     
-    # Calculate the total seconds
+    # Calculate the total miliseconds
     total_seconds = minutes * 60 + seconds
     total_miliseconds = total_seconds * 1000 + miliseconds
     
+    return total_miliseconds
+
+def seconds_to_miliseconds(seconds_str):
+    # convert to integer
+    seconds = int(seconds_str)
+    # calculate total miliseconds 
+    total_miliseconds = seconds * 1000
     return total_miliseconds
