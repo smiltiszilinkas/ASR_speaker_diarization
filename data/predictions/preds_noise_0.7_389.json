@@ -1,0 +1,1 @@
+{"true_labels": [{"name": "man5", "intervals": [{"start": 0, "end": 16000}]}], "predicted_labels": ["start=0ms stop=10000ms SPEAKER_00", "start=10000ms stop=11000ms SPEAKER_00", "start=11000ms stop=11000ms SPEAKER_00", "start=11000ms stop=15000ms SPEAKER_00"], "accuracy": 1.0, "number_of_speakers": 1}

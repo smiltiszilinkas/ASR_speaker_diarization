@@ -1,0 +1,1 @@
+{"true_labels": [{"name": "woman1", "intervals": [{"start": 0, "end": 21000}, {"start": 21000, "end": 42000}]}], "predicted_labels": ["start=0ms stop=14000ms SPEAKER_00", "start=15000ms stop=17000ms SPEAKER_00", "start=17000ms stop=18000ms SPEAKER_00", "start=18000ms stop=39000ms SPEAKER_00", "start=39000ms stop=41000ms SPEAKER_00"], "accuracy": 0.8, "number_of_speakers": 1}

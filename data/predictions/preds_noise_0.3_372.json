@@ -1,0 +1,1 @@
+{"true_labels": [{"name": "man1", "intervals": [{"start": 0, "end": 2000}]}, {"name": "kid0", "intervals": [{"start": 2000, "end": 6000}]}], "predicted_labels": ["start=0ms stop=1000ms SPEAKER_00", "start=2000ms stop=5000ms SPEAKER_01"], "accuracy": 1.0, "number_of_speakers": 2}
