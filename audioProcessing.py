@@ -98,38 +98,55 @@ def get_intervals_from_audio(audio_meta):
 
 def calculate_accuracy(correct_labels, predicted_labels):
   total_correct = 0
+  # Get the total number of predicted labels
   total_predicted = len(predicted_labels)
-
   for pred_label in predicted_labels:
+      # Parse the predicted label to get start time, end time, and speaker
       pred_start, pred_end, pred_speaker = parse_predicted_label(pred_label)
       if pred_speaker < total_predicted:
         for interval in correct_labels[pred_speaker]['intervals']:
+            # Check if the predicted interval is within the correct interval
             if pred_start >= interval['start'] and pred_end <= interval['end']:
                 total_correct += 1
                 break
-
+            
+  # Calculate accuracy as the ratio of correct predictions to total predictions
   accuracy = total_correct / total_predicted if total_predicted != 0 else 0
   return accuracy
 
 def parse_predicted_label(predicted_label):
+  # Split the predicted label string into parts
   parts = predicted_label.split()
   start_time = int(parts[0].split('=')[1].replace('ms', ''))
   end_time = int(parts[1].split('=')[1].replace('ms', ''))
   speaker = int(parts[2].split('SPEAKER_')[1])
+  # Return the parsed start time, end time, and speaker as a tuple
   return start_time, end_time, speaker
 
 def reorder_labels(predicted_labels):
   speaker_map = {}
+  
   new_predicted_labels = []
 
   for label in predicted_labels:
+      # Split the label into its constituent parts
       parts = label.split()
+      
+      # Extract the speaker information from the label
       speaker = parts[2]
+      
       if speaker not in speaker_map:
+          # If the speaker is not in the map, assign a unique identifier to the speaker
           speaker_map[speaker] = f"SPEAKER_{len(speaker_map):02d}"
+      
+      # Construct a new label with the same initial parts but replacing the speaker information
+      # with the corresponding unique identifier from the speaker map
       new_label = f"{parts[0]} {parts[1]} {speaker_map[speaker]}"
+      
+      # Append the new label to the list of reordered labels
       new_predicted_labels.append(new_label)
 
+  # Return the list of reordered labels
   return new_predicted_labels
 
 def add_noise_to_combined_files(noise_level, clips_number):
